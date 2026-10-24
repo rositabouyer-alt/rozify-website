@@ -1,0 +1,174 @@
+@import "tw-animate-css";
+@import "tailwindcss";
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ROZIFY AI — design system
+ * Palette: Savory Sage / Avocado Smoothie / Blush Beet / Peach Protein / Oat Latte
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-soft: var(--soft);
+  --color-soft-foreground: var(--soft-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-display: var(--font-display-family);
+  --font-sans: var(--font-body-family);
+
+  --shadow-soft:
+    0 1px 2px oklch(0.3054 0.014 113.01 / 0.04), 0 12px 32px -18px oklch(0.3054 0.014 113.01 / 0.28);
+  --shadow-lift:
+    0 2px 6px oklch(0.3054 0.014 113.01 / 0.05), 0 26px 60px -28px oklch(0.3054 0.014 113.01 / 0.38);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.8s ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --font-display-family: "Cormorant Garamond", "Vazirmatn", serif;
+  --font-body-family: "Jost", "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+
+  /* Oat Latte family */
+  --background: oklch(0.9618 0.0127 86.83);
+  --foreground: oklch(0.3054 0.014 113.01);
+
+  --card: oklch(0.9823 0.0069 88.64);
+  --card-foreground: oklch(0.3054 0.014 113.01);
+
+  --popover: oklch(0.9823 0.0069 88.64);
+  --popover-foreground: oklch(0.3054 0.014 113.01);
+
+  /* Savory Sage */
+  --primary: oklch(0.5973 0.0449 109.22);
+  --primary-foreground: oklch(0.9823 0.0069 88.64);
+
+  /* Avocado Smoothie */
+  --secondary: oklch(0.8048 0.0617 108.75);
+  --secondary-foreground: oklch(0.3054 0.014 113.01);
+
+  /* Oat Latte as the muted surface */
+  --muted: oklch(0.8712 0.0271 87.86);
+  --muted-foreground: oklch(0.4078 0.021 110.9);
+
+  /* Blush Beet */
+  --accent: oklch(0.8161 0.0438 39.82);
+  --accent-foreground: oklch(0.3054 0.014 113.01);
+
+  /* Peach Protein */
+  --soft: oklch(0.8967 0.0289 39.34);
+  --soft-foreground: oklch(0.3054 0.014 113.01);
+
+  --destructive: oklch(0.505 0.16 26);
+  --destructive-foreground: oklch(0.9823 0.0069 88.64);
+  --success: oklch(0.5226 0.0418 109.47);
+  --success-foreground: oklch(0.9823 0.0069 88.64);
+
+  --border: oklch(0.8712 0.0271 87.86);
+  --input: oklch(0.8712 0.0271 87.86);
+  --ring: oklch(0.5973 0.0449 109.22);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body-family);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  [dir="rtl"] body {
+    --font-display-family: "Vazirmatn", serif;
+    --font-body-family: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display-family);
+    font-weight: 400;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 76rem;
+  padding-inline: 1.25rem;
+}
+
+@utility eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+[dir="rtl"] .eyebrow {
+  letter-spacing: 0;
+}

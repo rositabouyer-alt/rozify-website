@@ -1,0 +1,14 @@
+﻿{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "rozify-website",
+  "compatibility_date": "2026-09-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@tanstack/react-start/server-entry",
+  "assets": {},
+  "vars": {
+    "CRM_INGEST_PATH": "/api/ingest/website"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

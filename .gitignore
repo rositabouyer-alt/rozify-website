@@ -1,0 +1,37 @@
+﻿# Environment variables and secrets
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+
+# Dependencies and generated files
+node_modules/
+dist/
+dist-ssr/
+.output/
+.vinxi/
+.tanstack/
+.nitro/
+.wrangler/
+.wrangler-test/
+.history/
+*.log
+*.zip
+*.local
+
+# Test data and backups
+test-booking.json
+test-crm-booking.json
+test-customer.json
+server.ts.backup
+
+# Editors and operating system
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
